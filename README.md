@@ -17,6 +17,13 @@ Convert weight data exported from Google Fit (via Google Takeout) into a CSV fil
 ### Requirements
 
 - Python 3.9 or newer (the script uses the built-in `zoneinfo` module introduced in Python 3.9)
+- **Windows or minimal containers only:** `zoneinfo` relies on the operating system's time zone database, which is not bundled with Python on Windows or in some minimal container images. If you get a `ZoneInfoNotFoundError`, install the `tzdata` package:
+
+  ```bash
+  pip install tzdata
+  ```
+
+  macOS and most Linux distributions include a system time zone database, so no extra package is needed there.
 
 ### Steps
 
@@ -33,7 +40,7 @@ Convert weight data exported from Google Fit (via Google Takeout) into a CSV fil
    python3 --version
    ```
 
-   The output should show Python 3.9 or newer. No additional packages need to be installed — only the Python standard library is used.
+   The output should show Python 3.9 or newer.
 
 ---
 
